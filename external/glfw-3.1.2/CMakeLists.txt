@@ -1,12 +1,6 @@
 project(GLFW C)
 
-cmake_minimum_required(VERSION 2.8.12)
-
-if (NOT CMAKE_VERSION VERSION_LESS "3.0")
-    # Until all major package systems have moved to CMake 3,
-    # we stick with the older INSTALL_NAME_DIR mechanism
-    cmake_policy(SET CMP0042 OLD)
-endif()
+cmake_minimum_required(VERSION 3.10)
 
 set(GLFW_VERSION_MAJOR "3")
 set(GLFW_VERSION_MINOR "1")
@@ -490,7 +484,7 @@ configure_package_config_file("${GLFW_SOURCE_DIR}/src/glfw3Config.cmake.in"
                               PATH_VARS CMAKE_INSTALL_PREFIX
                               NO_CHECK_REQUIRED_COMPONENTS_MACRO)
 
-write_basic_package_version_file("${GLFW_BINARY_DIR}/src/glfw3ConfigVersion.cmake" 
+write_basic_package_version_file("${GLFW_BINARY_DIR}/src/glfw3ConfigVersion.cmake"
                                  VERSION ${GLFW_VERSION_FULL}
                                  COMPATIBILITY SameMajorVersion)
 
@@ -548,4 +542,3 @@ if (GLFW_INSTALL)
                           "${GLFW_BINARY_DIR}/cmake_uninstall.cmake")
     endif()
 endif()
-
